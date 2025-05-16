@@ -71,7 +71,7 @@ class Gorse<T extends string> {
       secret = `${process.env["GORSE_SECRET"]}`,
       debug,
     }: ClientOptions,
-    axiosOptons?: AxiosRequestConfig
+    axiosOptons?: AxiosRequestConfig,
   ) {
     this.axiosClient = axios.create({
       baseURL: `${endpoint}/api`,
@@ -117,7 +117,7 @@ class Gorse<T extends string> {
 
   getSessionRecommend(
     feedbackList: Feedback<T>[],
-    options: SessionRecommendOptions = {}
+    options: SessionRecommendOptions = {},
   ) {
     return getSessionRecommend(this.axiosClient, feedbackList, options);
   }

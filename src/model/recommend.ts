@@ -10,14 +10,14 @@ import {
 
 export function getPopular(
   axios: AxiosInstance,
-  { category = "", cursorOptions }: PopularOptions
+  { category = "", cursorOptions }: PopularOptions,
 ) {
   return axios
     .get<PopularOutput[], AxiosResponse<PopularOutput[]>>(
       `/popular/${category}`,
       {
         params: cursorOptions,
-      }
+      },
     )
     .then(({ data }) => {
       return data;
@@ -26,7 +26,7 @@ export function getPopular(
 
 export function getLatest(
   axios: AxiosInstance,
-  { category = "", cursorOptions }: PopularOptions
+  { category = "", cursorOptions }: PopularOptions,
 ) {
   return axios
     .get<LatestOutput[], AxiosResponse<LatestOutput[]>>(`/latest/${category}`, {
@@ -45,7 +45,7 @@ export function getRecommend(
     cursorOptions,
     writeBackType,
     writeBackDelay,
-  }: RecommendOptions
+  }: RecommendOptions,
 ) {
   return axios
     .get<string[], AxiosResponse<string[]>>(
@@ -56,7 +56,7 @@ export function getRecommend(
           ...(writeBackDelay ? { "write-back-delay": writeBackDelay } : {}),
           ...cursorOptions,
         },
-      }
+      },
     )
     .then(({ data }) => {
       return data;
@@ -66,7 +66,7 @@ export function getRecommend(
 export function getSessionRecommend<T extends string>(
   axios: AxiosInstance,
   feedbackList: Feedback<T>[] = [],
-  { category = "", cursorOptions }: SessionRecommendOptions
+  { category = "", cursorOptions }: SessionRecommendOptions,
 ) {
   return axios
     .post(`/session/recommend/${category}`, feedbackList, {
