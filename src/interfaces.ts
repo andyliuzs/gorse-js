@@ -24,7 +24,7 @@ export interface PopularOutput {
 
 export interface PopularOptions {
   category?: string;
-  cursorOptions?: OffsetCursorWithUserIdOptions;
+  cursorWithUserIdOptions?: OffsetCursorWithUserIdOptions;
 }
 
 export interface RecommendOptions {
@@ -48,7 +48,7 @@ export interface ItemNeighborsOptions {
 
 export interface UserNeighborsOptions {
   userId: string;
-  cursorOptions?: OffsetCursorWithUserIdOptions;
+  cursorWithUserIdOptions?: OffsetCursorWithUserIdOptions;
 }
 
 export interface FeedbackFilter<T> {

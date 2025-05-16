@@ -65,11 +65,11 @@ export function insertUsers(axios: AxiosInstance, users: User[]) {
 
 export function getUserNeighbors(
   axios: AxiosInstance,
-  { userId, cursorOptions }: UserNeighborsOptions,
+  { userId, cursorWithUserIdOptions }: UserNeighborsOptions,
 ) {
   return axios
     .get<string[], AxiosResponse<string[]>>(`/user/${userId}/neighbors`, {
-      params: cursorOptions,
+      params: cursorWithUserIdOptions,
     })
     .then(({ data }) => {
       return data;

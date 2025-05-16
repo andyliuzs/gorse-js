@@ -10,13 +10,13 @@ import {
 
 export function getPopular(
   axios: AxiosInstance,
-  { category = "", cursorOptions }: PopularOptions,
+  { category = "", cursorWithUserIdOptions }: PopularOptions,
 ) {
   return axios
     .get<PopularOutput[], AxiosResponse<PopularOutput[]>>(
       `/popular/${category}`,
       {
-        params: cursorOptions,
+        params: cursorWithUserIdOptions,
       },
     )
     .then(({ data }) => {
@@ -26,11 +26,11 @@ export function getPopular(
 
 export function getLatest(
   axios: AxiosInstance,
-  { category = "", cursorOptions }: PopularOptions,
+  { category = "", cursorWithUserIdOptions }: PopularOptions,
 ) {
   return axios
     .get<LatestOutput[], AxiosResponse<LatestOutput[]>>(`/latest/${category}`, {
-      params: cursorOptions,
+      params: cursorWithUserIdOptions,
     })
     .then(({ data }) => {
       return data;
